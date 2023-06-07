@@ -1,3 +1,22 @@
+# This is a tic-tac-toe game.
+live demo : https://bespoke-kataifi-e3827c.netlify.app/play-game
+
+# skill gain:
+
+useState.
+
+useEffect.
+
+props.
+
+ES6.
+
+
+
+https://github.com/ajay-k12/tic-tac-toe/assets/108744630/6ec4ee08-6273-45b4-afdb-310365314230
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
