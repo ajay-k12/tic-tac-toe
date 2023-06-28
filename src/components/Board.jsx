@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Cell from './Cell'
-import Winner from './Winner';
 import Draw from './Draw';
 import ScoreBoard from './ScoreBoard';
 import bestMove from './bestMove';
@@ -15,6 +14,10 @@ const Board = () => {
   const [Owins, setOwins] = useState(0);
   const [isDisable, setIsDisable] = useState(false);
   let count = 9;
+  const row_1 = [0, 1, 2];
+  const row_2 = [3, 4, 5];
+  const row_3 = [6, 7, 8];
+  const board = [row_1, row_2, row_3];
 
   const compTern = () => {
     let item
@@ -112,7 +115,6 @@ const Board = () => {
     if(winnerName===""){
       isWin();
     }
-
     setTimeout(() => {
       if(isXTurn===false && winnerName===""){
         compTern();
@@ -130,34 +132,33 @@ const Board = () => {
   }
 
   return (
+    <>
+    {((isAllFill && !isWinner) || isWinner) 
+      && 
+      <Draw 
+        nextRound={nextRound} 
+        isWinner={isWinner} 
+        winnerName={winnerName} 
+        isAllFill={isAllFill} 
+      />
+    }
     <div className='body'>
-      
       <div className='container'>
         <div className={isDisable ? 'board is-disabled' : 'board'}>
-          <div className='board-row'>
-            <Cell value={state[0]} onClick={() => handleClick(0)} />
-            <Cell value={state[1]} onClick={() => handleClick(1)} />
-            <Cell value={state[2]} onClick={() => handleClick(2)} />
-          </div>
-          <div className='board-row'>
-            <Cell value={state[3]} onClick={() => handleClick(3)} />
-            <Cell value={state[4]} onClick={() => handleClick(4)} />
-            <Cell value={state[5]} onClick={() => handleClick(5)} />
-          </div>
-          <div className='board-row'>
-            <Cell value={state[6]} onClick={() => handleClick(6)} />
-            <Cell value={state[7]} onClick={() => handleClick(7)} />
-            <Cell value={state[8]} onClick={() => handleClick(8)}/>
-          </div>
+          {board.map((row) => (
+              <div className='board-row'>
+                {row.map((item) => (
+                  <Cell value={state[item]} onClick={() => handleClick(item)} />
+                ))}
+              </div>
+            ))}
         </div>
         <div className='right-side'>
           <ScoreBoard Xwins={Xwins} Owins={Owins}/>
-          <button className='next-game' onClick={nextRound}>Next Round</button>
         </div>
       </div>
-      {isWinner && <Winner winner={winnerName} />}
-      {(isAllFill && !isWinner) && <Draw />}
     </div>
+    </>
   )
 }
 

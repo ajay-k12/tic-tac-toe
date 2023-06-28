@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Winner = ({winner}) => {
+const Winner = ({winnerName}) => {
   return (
-    <div className='winner'>
-      '{winner}' Won This Round
-    </div>
+    <h1 className='draw-text'>
+      '{winnerName}' WON THIS ROUND!!!
+    </h1>
   )
 }
 

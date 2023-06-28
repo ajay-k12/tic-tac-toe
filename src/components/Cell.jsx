@@ -5,7 +5,7 @@ const Cell = ({value, onClick}) => {
   
   return (
     <div onClick={onClick} className='cell'>
-      {value}
+      <p className='move-value'>{value}</p>
     </div>
   )
 }
