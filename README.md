@@ -1,5 +1,5 @@
 # This is a tic-tac-toe game.
-live demo : https://bespoke-kataifi-e3827c.netlify.app/play-game
+live demo : https://bespoke-kataifi-e3827c.netlify.app
 
 # skill gain:
 
@@ -7,7 +7,7 @@ useState.
 
 useEffect.
 
-props.
+props
 
 ES6.
 
